@@ -7,7 +7,6 @@ export default class UserAccountWidgetComponent extends NavigationBaseComponent 
         if (!this.store.showProfileMenu) return null
         return <ul className='profile-menu'>
             <li><a href='/app/user-profile'><span>My Profile</span></a></li>
-            <li><a href='/app/user-profile/investor'><span>Account Settings</span></a></li>
             <li><a onClick={(e) => this.authService.logout('', '/api/logout')}><span>Log out</span></a></li>
         </ul>
     }

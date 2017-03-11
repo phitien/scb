@@ -13,7 +13,6 @@ export default class SideNavigationComponent extends NavigationBaseComponent {
             {url: '/about-us', title: 'About', className: 'extra'},
             {url: '/contact-us', title: 'Contact Us', className: 'extra'},
             {url: '/app/user-profile', title: 'My Profile', className: 'extra'},
-            {url: '/app/user-profile/investor', title: 'Account Settings', className: 'extra'},
             {onClick: (e) => this.authService.logout('', '/api/logout'), title: 'Log out', className: 'extra'},
         ] : [
             {url: '/about-us', title: 'About', className: 'extra'},

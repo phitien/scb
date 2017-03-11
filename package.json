@@ -206,8 +206,8 @@
     "yargs": "^3.10.0"
   },
   "scripts": {
-    "start-scanner": "NODE_PATH=./:../:./server:./apps nodemon ./apps/scanner/server/server.js --exec babel-node",
-    "__new_script__": "",
+"start-scanner": "NODE_PATH=./:../:./server:./apps nodemon ./apps/scanner/server/server.js --exec babel-node",
+"__new_script__": "",
     "babel-node": "NODE_PATH=./:../:../../:../../../:../../../../:../../../../../ babel-node --stage 0",
     "bnwin": "babel-node --stage 0",
     "eslint": "eslint",

@@ -15,8 +15,6 @@
     }
     .login-signup-box {
         display: flex;flex-direction: row;align-items: center;justify-content: center;
-        .btn-style {width: 120px;}
-        .btn-signup {margin-right: 24px;}
     }
     .universal-navigation {
         height: $universal-navigation-height;
@@ -33,7 +31,7 @@
                 }
                 &.active a {
                     font-weight: bold;
-                    color: #263238;
+                    color: #1E1E1E;
                 }
             }
         }
@@ -79,7 +77,7 @@
                         position: absolute;top: 100%;left: 0px;background-color: #ffffff;z-index: 1;
                         display: block;margin: 0;padding: 12px 0;
                         >li {display: block;margin: 0;padding: 0;width: 200px;text-align: left;
-                            a {color: #263238;}
+                            a {color: #1E1E1E;}
                             &:hover {background-color: whitesmoke;}
                         }
                     }
@@ -305,9 +303,9 @@
         li {display: block;margin: 0;padding: 0;
             a {
                 display: block;padding: 0 24px;
-                color: #263238;font-size: 12px;font-weight: normal;
+                color: #1E1E1E;font-size: 12px;font-weight: normal;
                 font-style: normal;font-stretch: normal;letter-spacing: normal;
-                &:hover {text-decoration: none;color: #263238;}
+                &:hover {text-decoration: none;color: #1E1E1E;}
             }
             &:hover {background-color: whitesmoke;}
         }
@@ -340,22 +338,24 @@
     &:hover {
         box-shadow: 0 2px 4px 0 rgba(38, 49, 56, 0.08);
         .user-profile-info .firstname {
-            color: #263238;
+            color: #1E1E1E;
         }
         .user-profile-info:after {
-            border-color: #263238 transparent transparent transparent;
+            border-color: #1E1E1E transparent transparent transparent;
         }
     }
 }
 .search-component {
-    position: absolute;top: $universal-navigation-height;left: 0;width: 100%;z-index: 100000;
+    position: absolute;top: $universal-navigation-height;z-index: 100000;
+    padding: 0;width: 960px;margin: auto;background-color: #263238;
     .control {display: flex;align-items: center;justify-content: space-between;
-        background-color: #263238;
+        background-color: #1E1E1E;
         .icon-search {
             height: 40px;width: 40px;
             background-image: url(/public/static/images/icons/icon-search-click-active.png);
         }
-        input[type=text] {flex: 1;background-color: transparent;border: none;color: #e9eaeb;box-shadow: none;
+        input[type=text] {flex: 1;border: none;color: #e9eaeb;box-shadow: none;
+            background-color: transparent !important;
             &:focus,&:active {outline: none;border: none;box-shadow: none;}
         }
         .icon-cancel {
@@ -368,31 +368,31 @@
         .block {
             flex: 1;padding-right: 120px;
             .block-title {
-                font-weight: bold;font-size: 12px;color: #f44336;text-transform: uppercase;
+                font-weight: bold;font-size: 12px;color: #2C9F33;text-transform: uppercase;
             }
             .block-items {}
             .block-item {
                 margin: 8px 0;
-                a {color: #263238;font-size: 15px;line-height: 100%;}
+                a {color: #1E1E1E;font-size: 15px;line-height: 100%;}
             }
             &:last-child {padding-right: 0;}
         }
     }
 }
 .site-logo {
-    display: block;width: 184px;height: 40px;
+    display: block;width: 164px;height: $universal-navigation-height;
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
-    background-image: url(/public/static/images/logo/icon-af-logo@3x.png);
+    background-image: url(/public/static/images/logo/logo.gif);
     text-align: left;
 }
 .footer-container {
-    background-color: #263238;border-top: 4px solid #f44336;
+    border-top: 4px solid #2C9F33;
     * {font-size: 12px;line-height: 32px;}
     .site-logo {
-        width: 190px;height: 41px;
-        background-image: url(/public/static/images/logo/a-f-logo-white.png);
+        width: 164px;height: $universal-navigation-height;
+        background-image: url(/public/static/images/logo/logo.gif);
     }
     .follow-us {justify-content: flex-start;
         .text {display: none;}}
@@ -401,7 +401,7 @@
     .universal-menu {
         li {margin: 0;padding: 0;display: block;
             a,a:hover,a:focus,a:visited,a:active {
-                font-size: 12px;color: #ffab00;text-transform: uppercase;margin-bottom: 24px;
+                font-size: 12px;text-transform: uppercase;margin-bottom: 24px;
             }
         }
     }
@@ -441,23 +441,23 @@
     }
     .container-tablet, .container-mobile {display: none;}
     .container-desktop {
-        padding: 36px 0;
+        padding: 16px 0;
         display: flex;flex-direction: row;align-items: flex-start;justify-content: space-between;
         .logo-social-networks {display: flex;flex: 1;flex-direction: column;align-items: flex-start;justify-content: flex-start;}
         .site-menu {
             width: 350px;
             >li {float: left;}
         }
-        .copyright {margin: 16px 0 40px;}
-        .terms-and-conditions {margin: 40px 0 0;}
+        .copyright {margin: 16px 0;}
+        .terms-and-conditions {margin: 16px 0 0;}
     }
 }
 .auth-form {
     display: flex;flex-direction: column;align-items: center;justify-content: center;
-    padding: 24px;background-color: #f9f9fa;border-top: 2px solid #f44336;
+    padding: 24px;background-color: #f9f9fa;border-top: 2px solid #2C9F33;
     button {width: 100%;text-transform: uppercase;margin-top: 24px;}
     >* {width: 100%;}
-    a {cursor: pointer;color: #f44336;font-weight: bold;}
+    a {cursor: pointer;color: #2C9F33;font-weight: bold;}
     .input-box {margin: 16px 0;
         &:first-child {margin-top: 8px;}
     }
@@ -473,15 +473,15 @@
         background-image: url(/public/static/images/icons/icon-visible-normal.png);
     }
     .forget-password-link {
-        display: block;text-align: right;color: #f44336;font-size: 14px;font-weight: bold;cursor: pointer;
+        display: block;text-align: right;color: #2C9F33;font-size: 14px;font-weight: bold;cursor: pointer;
     }
     .bottom-link {
         margin-top: 24px;color: #8a9093;font-size: 14px;text-align: center;
-        a {font-weight: bold;color: #f44336;}
+        a {font-weight: bold;color: #2C9F33;}
     }
     .aggrement {
         margin-top: 32px;color: #8a9093;font-size: 12px;text-align: center;line-height: 1.67;
-        a {color: #263238;}
+        a {color: #1E1E1E;}
     }
     .names {display: flex;flex-direction: row;align-items: flex-start;justify-content: space-between;
         .input-box {margin-top: 8px;}
@@ -505,7 +505,7 @@
     color: #ffffff;border-radius: 10px;overflow: hidden;
     .info,.error,.warning {flex: 1;padding: 16px 80px 16px 24px;font-size: inherit;}
     .info {background-color: #5cb85c;}
-    .error {background-color: #f44336;}
+    .error {background-color: #2C9F33;}
     .warning {background-color: #b79a3f;}
     .global-message-close {
         position: absolute;top: 50%;margin-top: -16px;right: 24px;height: 32px;width: 32px;cursor: pointer;

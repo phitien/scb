@@ -18,10 +18,9 @@ export default class UserProfileHomepageContent extends UserProfileContent {
     validate = () => (this.validateFieldNotEmpty('firstNameInput', 'Please enter your first name.')
         && this.validateFieldNotEmpty('lastNameInput', 'Please enter your last name.')
         && this.phoneNumber.validate()
-        && (!this.user.isNormalLoginUser || (this.user.isNormalLoginUser && this.validateFieldNotEmpty('passwordInput', 'Please enter your password.'))))
+        && (this.validateFieldNotEmpty('passwordInput', 'Please enter your password.')))
         ? this.removeError() : false
     get passwordField() {
-        if (!this.user.isNormalLoginUser) return null
         return [
             <div key={0} className='field-label field-confirm-password-label'>Confirm current password</div>,
             <CoreInput key={1} type='password' defaultValue='' placeholder='Enter password to save changes'
@@ -61,8 +60,8 @@ export default class UserProfileHomepageContent extends UserProfileContent {
                             <LinkedAccountsComponent ref={e => this.linkedAccounts = e}/>
                         </div>
                         <div className='actions'>
-                            {this.user.isNormalLoginUser ? <CoreButton className='btn-style-regular btn-style-hilighted btn-change-password'
-                                onClick={() => this.modal = <ChangePasswordModal/>}>Change password</CoreButton> : null}
+                            <CoreButton className='btn-style-regular btn-style-hilighted btn-change-password'
+                                onClick={() => this.modal = <ChangePasswordModal/>}>Change password</CoreButton>
                             <CoreButton className='btn-style-regular btn-save' onClick={this.props.onSaveClick}>Save</CoreButton>
                         </div>
                     </div>

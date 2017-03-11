@@ -3,22 +3,20 @@ import { Provider } from 'react-redux'
 import NavigationBaseComponent from 'apps/navigation/components/Component'
 import LogoComponent from 'apps/navigation/components/Logo'
 import UniversalMenuComponent from 'apps/navigation/components/UniversalMenu'
-import SiteMenuComponent from 'apps/navigation/components/SiteMenu'
+import SiteMenu from 'apps/navigation/components/SiteMenu'
 import ActionsMenuComponent from 'apps/navigation/components/ActionsMenu'
 import SideNavigationComponent from 'apps/navigation/components/SideNavigation'
 import SearchComponent from 'apps/navigation/components/Search'
-import { AppStore } from 'common/stores/AppStore'
+import AppStore from 'apps/AppStore'
 import LoginModal from 'apps/navigation/modals/LoginModal'
 import ResetPasswordModal from 'apps/navigation/modals/ResetPasswordModal'
 import MessageComponent from 'apps/navigation/components/Message'
 
 export default class HeaderComponent extends NavigationBaseComponent {
-    get mainClassName() {return 'header-container'}
-    get logo() {
-        return null
-        return <LogoComponent/>}
+    get mainClassName() {return 'container header-container'}
+    get logo() {return <LogoComponent/>}
     get universalMenu() {return <UniversalMenuComponent/>}
-    get siteMenu() {return <SiteMenuComponent/>}
+    get siteMenu() {return <SiteMenu/>}
     get actionsMenu() {return <ActionsMenuComponent/>}
     get sideNavigation() {return this.store.showSideMenu ? <SideNavigationComponent/> : null}
     get searchComponent() {return this.store.showSearchComponent ? <SearchComponent/> : null}

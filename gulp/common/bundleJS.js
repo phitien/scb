@@ -21,7 +21,6 @@ function createBundle(entry, paths, bundleName, dest, production, is_component) 
         debug: true,
         fullPaths: true,
         noBundleExternal: true,
-        transform: [babelify],
         paths: paths
     };
 
@@ -34,7 +33,8 @@ function createBundle(entry, paths, bundleName, dest, production, is_component) 
         bundleConfig.plugin = [watchify];
         bundleConfig = assign({}, watchify.args, bundleConfig);
     }
-    var _bundle = browserify(bundleConfig);
+    var _bundle = browserify(bundleConfig)
+        .transform("babelify", {presets: ["es2015", "react", "stage-0"]});
     libs.forEach(function (lib) {
         _bundle.external(lib);
     });

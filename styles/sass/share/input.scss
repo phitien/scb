@@ -31,7 +31,7 @@ input[type=checkbox][checked]:after,.input-switch.checked:after {background-imag
 input[disabled] {
     color: lightgrey !important;
 }
-.field-error {font-size: 12px;font-weight: normal;color: #f44336;display: block;margin: 0;}
+.field-error {font-size: 12px;font-weight: normal;color: #2C9F33;display: block;margin: 0;}
 .input-box {
     position: relative;display: flex;align-items: center;
     input[type=text],input[type=password],input[type=email],input[type=url],input[type=number],textarea {
@@ -42,7 +42,7 @@ input[disabled] {
 }
 .error.input-box,.error .input-box {
     input[type=text],input[type=password],input[type=email],input[type=url],input[type=number] {
-        border-color: #f44336;
+        border-color: #2C9F33;
     }
     label.error-message {@extend .field-error;position: absolute;top: 100%;}
 }

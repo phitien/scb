@@ -5,6 +5,7 @@ var gutil = require('gulp-util')
 
 module.exports = exports = function(settings) {
     return function() {
+        console.log(settings.DIST_DIR)
         if (!settings.is_component) {
             inject.transform.html.js = filepath => `<script async defer src='${filepath}'></script>`
             gulp.src(`${settings.TEMPLATE_DIR}/index.html`)

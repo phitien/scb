@@ -1,6 +1,5 @@
 import AppDispatcher from 'common/dispatchers/AppDispatcher'
 import {EVENTS, CoreStore, CoreActions, CoreService} from 'common/core/CoreService'
-import {save, update, fetch, remove} from 'common/utils/RESTUtil'
 import NewModuleSettings from 'apps/new_module/Settings'
 
 class Actions extends CoreActions {

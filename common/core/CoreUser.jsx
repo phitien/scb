@@ -1,14 +1,11 @@
-import _ from 'lodash'
-import CoreObject from './CoreObject'
-import {userHasValidToken, getUserProfile, isNormalLoginUser, isUserAccredited} from 'common/utils/AuthUtil'
-import AuthStore from 'apps/authentication/stores/AuthStore'
+import AuthService from 'common/core/auth/Service'
 /**
  * @class CoreUser
  */
-export default class CoreUser extends CoreObject {
-    get authStore() {return AuthStore}
-    get isNormalLoginUser() {return this.authStore.isNormalLoginUser}
-    get isLoggedIn() {return this.authStore.isLoggedIn()}
+class CoreUser {
+    get authService() {return AuthService}
+    get authStore() {return this.authService.store}
+    get isLoggedIn() {return this.authStore.isLoggedIn}
     get email() {return this.authStore.email}
     get profilePic() {return this.authStore.profilePic}
     get firstName() {return this.authStore.firstName}
@@ -24,9 +21,6 @@ export default class CoreUser extends CoreObject {
             return this.authStore.lastLogin
         }
     }
-    get hasValidToken() {return userHasValidToken()}
-    get loginAsNormal() {return isNormalLoginUser()}
-    get userProfile() {return getUserProfile()}
-    get isAccredited() {return isUserAccredited()}
     logout = () => this.authStore.userInfo = null
 }
+export default new CoreUser()

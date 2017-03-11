@@ -11,7 +11,7 @@ export default class ForgetPasswordForm extends FormComponent {
     onSubmit = () => {
         this.setState({disabled: true, buttonText: 'Send again'})
         if (this.validate()) {
-            this.authService.forgetPw(this.emailInput.value)
+            this.authService.forgetPassword(this.emailInput.value)
             .then(res => {
                 this.state.disabled = false
                 this.modalMessage = `An email has been sent to ${this.email} to reset your password.`

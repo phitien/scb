@@ -2,7 +2,7 @@ import AppDispatcher from 'common/dispatchers/AppDispatcher'
 import {EVENTS, CoreStore, CoreActions, CoreService} from 'common/core/CoreService'
 import {save, update, fetch, remove} from 'common/utils/RESTUtil'
 import NavigationSettings from 'apps/navigation/Settings'
-import Menus from 'public/gen/menus'
+import Menus from 'apps/Menus'
 
 EVENTS.sure('navigation', 'search_searchdata')
 

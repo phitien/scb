@@ -15,9 +15,6 @@ export default class LoginSignupSocialNetworksComponent extends NavigationBaseCo
         icon: 'facebook',
         onClick: this.onFacebookClick,
         ref: 'facebookButton'
-    },{
-        icon: 'googleplus',
-        ref: 'googleplusButton'
     }]}
 
     componentDidMount() {

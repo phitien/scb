@@ -1,7 +1,7 @@
 import AppDispatcher from 'common/dispatchers/AppDispatcher'
 import { EventEmitter } from 'events'
 import {save, update, fetch, remove, convertAndPrepare} from 'common/utils/RESTUtil'
-import CoreUtil from 'common/core/CoreUtil'
+import coreUtil from 'common/core/CoreUtil'
 import events from 'common/core/Events'
 import when from 'when'
 
@@ -22,6 +22,7 @@ export const DEFAULT_ORDERBY = '-id'
 function getConstants(constants) {return ObjectAssign({}, CoreServiceConstants, constants)}
 
 export class CoreActions {
+    get util() {return coreUtil}
     dispatch = (actionType, resp) => AppDispatcher.dispatch({actionType, data: resp})
     loadlist(resp, message) {
         AppDispatcher.dispatch({
@@ -41,6 +42,7 @@ export class CoreStore extends EventEmitter {
         this._data_storage = {}
         this.init()
     }
+    get util() {return coreUtil}
     get constants() {return this._constants}
     set constants(v) {this.setConstants(v)}
     setConstants(v) {
@@ -189,11 +191,11 @@ export class CoreStore extends EventEmitter {
 
 export class CoreService {
     constructor(constants, store, actions) {
-        this.util = new CoreUtil()
         this.util.assign(this, {store: store, actions: actions, constants: getConstants(constants)})
-        this.util.assign(this.store, {service: this, util: this.util, constants: this.constants})
-        this.util.assign(this.actions, {service: this, util: this.util, constants: this.constants})
+        this.util.assign(this.store, {service: this, constants: this.constants})
+        this.util.assign(this.actions, {service: this, constants: this.constants})
     }
+    get util() {return coreUtil}
     get successful() {return this._successful}
     set successful(v) {this._successful = v}
     get baseUrl() {return this.rest_uri ? this.rest_uri : `/api/`}
@@ -209,13 +211,13 @@ export class CoreService {
                 this.store.requesting = false
                 this.successful = true
                 success(resp)
-            }).catch(error => {
+                return resp
+            }).catch(resp => {
                 this.store.requesting = false
                 this.successful = false
-                if (failure) failure(error)
-                else this.failure(error)
-            }).then(() => {
-                if (callback) callback(this.successful)
+                if (failure) failure(resp)
+                else this.failure(resp)
+                return resp
             })
         }
         return this.noop()

@@ -24,7 +24,7 @@ export default class CoreTimer {
         let me = this;
         let run = this.options.run;
         let canRun = this.options.canRun;
-        cookie.save('gec-timer-last-run', (new Date).getTime());
+        cookie.save('app-timer-last-run', (new Date).getTime());
         return function() {
             if (canRun()) run();
         };
@@ -33,7 +33,7 @@ export default class CoreTimer {
         return (new Date).getTime();
     }
     get lastRun() {
-        return parseInt(cookie.load('gec-timer-last-run'));
+        return parseInt(cookie.load('app-timer-last-run'));
     }
     get unit() {
         return this.options.unit.toUpperCase() == 'D' ? 24*60*60*1000 : this.options.unit == 'H' ? 60*60*1000 : this.options.unit == 'M' ? 60*1000 : 1000;

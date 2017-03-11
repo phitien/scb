@@ -1,45 +1,80 @@
 @charset "utf-8";
 @import "../constants/variables";
 
+html {}
+body {
+    margin: 0;padding: 0;
+    font: 62.5%/1 arial,verdana,helvetica,clean,sans-serif;
+    font-size: 12px;line-height: $line-height;
+    color: #000;
+    background: #373737 url(/public/static/images/bg.jpg) 50% 0 no-repeat fixed;
+}
+a {
+    color: #2C9F33;text-decoration: none;
+    span {color: #2C9F33;}
+    span:before {background-color: #2C9F33;}
+    &:hover {
+        color: #338322;
+        span {color: #338322;}
+        span:before {background-color: #338322;}
+    }
+}
+table {width: 100%;
+    border-spacing: 0;
+    border-top: 1px solid #B1B1B1;
+    border-right: 1px solid #B1B1B1;
+    tr {border: none;}
+    td, th {
+        font-weight: inherit;
+        line-height: $line-height;
+        border: none;
+        border-bottom: 1px solid #B1B1B1;
+        border-left: 1px solid #B1B1B1;
+        padding: 3px 5px;
+    }
+    th,th:hover {background-color: gray;}
+    td {border-color: #B1B1B1;}
+    thead {
+        background: #B1B1B1;
+        color: #ffffff;
+        .title {background: #ffffff;color: #000;text-align: center;
+            td,td:hover {background-color: #ffffff;}
+        }
+    }
+    tbody {
+        td {background-color: whitesmoke;}
+        tr.selected, tr:hover {
+            td {background-color: #B1B1B1;}
+            td.selected, td:hover {background-color: #ffffff;}
+        }
+    }
+    tfoot {
+        text-align: center;
+        td,td:hover {background-color: #ffffff;}
+        a {display: inline-block;padding: 0 5px;}
+    }
+}
 .window {display: block;}
 .mobile {display: none;}
 .viewport {
     min-height: 700px;
     display: flex;
     flex-direction: column;
-    .header-wrapper {}
-    .page {
-        flex: 1;
-    }
-    .footer {}
+    .page {flex: 1;}
 }
-
-.thump-up-image {
-    display: inline-block;
-    height: 80px;
-    width: 80px;
-    background-image: url(/public/static/images/auth/like.png);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    margin: 0 auto;
-    border: 1px solid #dcddde;
-    border-radius: 50%;
-}
-
 .page {
-    display: flex;
-    flex-direction: column;
+    display: flex;flex-direction: column;align-items: flex-start;justify-content: center;
     padding: 0;
-    background-color: whitesmoke;
     width: 100%;
+    .container {width: 100%;margin: auto;}
+    .header-container,.viewport,.footer-container {padding: 0 85px;width: 960px;margin: auto;background-color: #fff;}
 }
 .page .viewport .content-sidebar {
     flex: 1;display: flex;flex-direction: row;align-items: flex-start;justify-content: flex-start;
     > .section > .section {
         border-top: 1px solid #f5f5f5;
     }
-    .sidebar {width: 270px;}
+    .sidebar {width: 166px;}
     .content {flex: 1;margin: 0;}
 }
 .page .viewport .content-sidebar-left {
@@ -57,7 +92,7 @@
 .page .viewport {
     .sidebar {
         list-style: none;
-        background-color: white;
+        background-color: #ffffff;
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
         display: list-item;
         font-size: 15px;
@@ -74,8 +109,7 @@
                     span {
                         display: block;
                         border-bottom: 1px solid #f5f5f5;
-                        color: #000;
-                        line-height: 68px;
+                        line-height: $line-height-200;
                         cursor: pointer;
                         position: relative;
                         font-weight: 600;
@@ -83,20 +117,18 @@
                             content: '';
                             display: block;
                             position: absolute;
-                            top: 14px;
+                            top: 0;
                             left: -16px;
                             width: 4px;
-                            height: 40px;
-                            background-color: white;
+                            height: 100%;
                         }
                     }
                 }
                 &.active,&:hover {
                     a span {
-                        color: #f44336;
                         font-weight: bold;
                         &:before {
-                            background-color: #f44336;
+                            background-color: #2C9F33;
                         }
                     }
                 }
@@ -116,7 +148,7 @@
         padding: 0 0 37px;
         .heading {
             font-size: 18px;
-            line-height: 68px;
+            line-height: $line-height-200;
         }
     }
     .actions {
@@ -141,7 +173,7 @@
         margin-top: 16px;
         a {
             font-weight: bold;
-            color: #f44336;
+            color: #2C9F33;
         }
     }
     .display-columns {
@@ -163,20 +195,18 @@
         }
     }
     .content {
-        padding: 0 24px;
-        background-color: white;
-        min-height: 400px !important;
+        background-color: #ffffff;
         > .heading {
-            font-size: 20px;line-height: 68px;border-bottom: 1px solid #fafafa;
+            font-size: 20px;line-height: $line-height-200;border-bottom: 1px solid #fafafa;
         }
-        a {cursor: pointer;color: #f44336;display: inline-block;}
+        a {cursor: pointer;color: #2C9F33;display: inline-block;}
         label {font-weight: normal;}
         .input-box {min-height: 36px;}
         .wrapper {display: flex;flex-direction: row;align-items: flex-start;justify-content: flex-start;padding: 24px 0;}
         .page-form {flex: 1;}
         .field {display: flex;flex-direction: column;flex:1;margin-bottom: 24px;}
         .field-label {font-size: 14px;font-weight: bold;margin-bottom: 8px;color: #263238;}
-        .field-hilighted-label {font-size: 14px;font-weight: bold;margin-bottom: 8px;color: #f44336;}
+        .field-hilighted-label {font-size: 14px;font-weight: bold;margin-bottom: 8px;color: #2C9F33;}
         .field-group {display: flex;flex-direction: row;flex:1;}
         .actions {
             margin: 32px 0;
@@ -241,7 +271,7 @@
                     &:hover {
                         a span {color: #8a9093;font-weight: normal;}
                     }
-                    &.active a span {color: #f44336;font-weight: bold;}
+                    &.active a span {color: #2C9F33;font-weight: bold;}
                 }
             }
         }

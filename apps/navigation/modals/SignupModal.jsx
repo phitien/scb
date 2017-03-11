@@ -1,6 +1,6 @@
 import React from 'react'
 import NavigationModal from 'apps/navigation/modals/Modal'
-import LoginSignupSocialNetworksComponent from 'apps/navigation/components/LoginSignupSocialNetworks'
+import LoginSignupSocialNetworks from 'apps/navigation/components/LoginSignupSocialNetworks'
 import SignupForm from 'apps/navigation/components/forms/SignupForm'
 
 export default class SignupModal extends NavigationModal {
@@ -9,7 +9,7 @@ export default class SignupModal extends NavigationModal {
         return (
             <div className='modal-content'>
                 <h3 className='modal-title'>Sign up</h3>
-                <LoginSignupSocialNetworksComponent />
+                <LoginSignupSocialNetworks />
                 <SignupForm/>
                 {this.closeButton}
             </div>

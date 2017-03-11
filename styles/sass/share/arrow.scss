@@ -1,29 +1,29 @@
 .arrow {
-  width: 0;
-  height: 0;
-  display: inline-block;
+    width: 0;
+    height: 0;
+    display: inline-block;
 }
 
 .arrow-up {
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-bottom: 10px solid grey;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 10px solid grey;
 }
 
 .arrow-down {
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-top: 10px solid grey;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 10px solid grey;
 }
 
 .arrow-right {
-  border-top: 5px solid transparent;
-  border-bottom: 5px solid transparent;
-  border-left: 10px solid grey;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 10px solid grey;
 }
 
 .arrow-left {
-  border-top: 5px solid transparent;
-  border-bottom: 5px solid transparent;
-  border-right:10px solid grey;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-right:10px solid grey;
 }

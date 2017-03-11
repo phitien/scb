@@ -1,15 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import _ from 'lodash'
-import cookie from 'react-cookie'
-import {formatDatetime} from 'common/utils/DateTimeUtils'
-import DateTimeFormatter from 'common/utils/DateTimeFormatter'
+import coreCookie from 'common/core/CoreCookie'
+import moment from 'moment'
 import ObjectAssign from 'object-assign'
 import { browserHistory } from 'react-router'
 
 const location = typeof window != 'undefined' ? window.location : {hash: '', search: '', href: ''};
 
-export default class CoreUtil {
+class CoreUtil {
     getPairs = (str) => {
         let rs = {}
         let pairs = str.split('&')
@@ -51,8 +50,8 @@ export default class CoreUtil {
         (rates[converting] && !rates[converting][origin])
     ) ? 1 : rates[origin] ? rates[origin][converting] : 1/rates[converting][origin]
     idOf = (o, n) => new Array(n).join('0').slice((n || 2) * -1) + o
-    dateOf = o => formatDatetime(o, 'MMMM Do YYYY')
-    beautyDateOf = o => DateTimeFormatter.formatDatetime(o)
+    dateOf = o => moment(o).format('MMMM Do YYYY')
+    beautyDateOf = o => moment(o).format('MMMM Do YYYY')
     random = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min
 
     props = (origin, excluded) => {
@@ -70,63 +69,11 @@ export default class CoreUtil {
     openNewTab = link => window.open(link, '_blank')
     redirect = link => window.open(link)
 
-    addAppStylesAndJSScripts = () => {
-        this.addStuffGoogle()
-        this.addStuffFacebook()
-        this.addStuffLinkedIn()
-        this.addStuffOneSignal()
-        this.addStyles()
-    }
-    addStuffFacebook = () => {
-        this.addJsScript('//connect.facebook.net/en_US/sdk.js', 'facebook-jssdk')
-        if (!this.isServerSideRendering()) {
-            const FB_APP_ID = "1563228833967568"
-            window.fbAsyncInit = function() {
-                FB.init({
-                    appId      : FB_APP_ID,
-                    xfbml      : true,
-                    version    : 'v2.5',
-                    status     : true
-                })
-            }
-        }
-    }
-    addStuffGoogle = () => {
-        this.addJsScript(null, 'google-tag-manager', `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','GTM-W8K93S');`)
-    }
-    addStuffLinkedIn = () => {
-        this.addJsScript('//platform.linkedin.com/in.js', 'linkedin-sdk',
-        `api_key: 78x0bfyd7eg3mb
-        authorize: true`)
-    }
-    addStuffOneSignal = () => {
-        this.addLink('/manifest.json', {rel: 'manifest'}, 'onesignal-manifest')
-        this.addJsScript('//cdn.onesignal.com/sdks/OneSignalSDK.js', 'onesignal-sdk')
-    }
-    addStyles = () => {
-        this.addCssLink('/public/static/css/dist/css/react-bootstrap-table-all.min.css', 'bootstrap-table-css')
-    }
-    addJsScript = (src, id, innerHTML) => {
-        this.appendTag('script', {src}, id, innerHTML)
-    }
-    addCssLink = (href, id) => {
-        this.addLink(href, {
-            type: 'text/css',
-            rel: 'stylesheet',
-        }, id)
-    }
-    addLink = (href, props, id) => {
-        this.appendTag('link', {
-            href, ...props
-        }, id)
-    }
-    addMeta = (name, content, id) => {
-        this.appendTag('meta', {name, content}, id)
-    }
+    addAppStylesAndJSScripts = () => {}
+    addJsScript = (src, id, innerHTML) => this.appendTag('script', {src}, id, innerHTML)
+    addCssLink = (href, id) => this.addLink(href, {type: 'text/css',rel: 'stylesheet',}, id)
+    addLink = (href, props, id) => this.appendTag('link', {href, ...props}, id)
+    addMeta = (name, content, id) => this.appendTag('meta', {name, content}, id)
     appendTag = (tagName, props, id, innerHTML) => {
         if (typeof document == 'undefined' || document.getElementById(id)) return
         let tags    = document.getElementsByTagName(tagName),
@@ -139,29 +86,12 @@ export default class CoreUtil {
         if (innerHTML) try {tag.innerHTML = innerHTML} catch(e) {}
         last.parentNode.insertBefore(tag, last.nextSibling)
     }
-    getCookie = cname => cookie.load(cname)
-    get JWTToken() {return this.getCookie('af-jwt')}
-    get CSRFToken() {return this.getCookie('csrftoken')}
-    setCookie(cname, cval, expiryDays) {
-        cookie.save(cname, cval, {
-            expires: expiryDays,
-            domain: location.hostname,
-            path: '/'
-        })
-        if (typeof window != 'undefined') {
-            dispatchEvent(new CustomEvent('cookie_updated', {name: cname, value: cval}))
-        }
-    }
-    deleteCookie(cname) {
-        cookie.remove(cname, {
-            domain: location.hostname,
-            path: '/'
-        })
-        if (typeof window != 'undefined') {
-            dispatchEvent(new CustomEvent('cookie_deleted', {name: cname}))
-        }
-    }
-    getQueryValue(name) {
+
+    getCookie = name => coreCookie.getCookie(name)
+    setCookie = (name, value, expiryDays) => coreCookie.setCookie(name, value, expiryDays)
+    deleteCookie = (name) => coreCookie.deleteCookie(name)
+
+    getQueryValue = name => {
         var url = location.href
         var name = name.replace(/[\[\]]/g, '\\$&')
         var regex = new RegExp(`[?&]${name}(=([^&#]*)|&|#|$)`),
@@ -171,7 +101,6 @@ export default class CoreUtil {
         return decodeURIComponent(results[2].replace(/\+/g, ' '))
     }
     isServerSideRendering = () => typeof window == 'undefined'
-    noop = () => {
-        //do nothing, this function is importantly created to do nothing, so please do not do anything here
-    }
+    noop = () => {}
 }
+export default new CoreUtil()

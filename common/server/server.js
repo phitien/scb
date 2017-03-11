@@ -115,16 +115,6 @@ export default class Server {
         //Handle request
         me.server.use(bodyParser.json())
         me.server.use(bodyParser.urlencoded({ extended: true }))
-        me.server.post('/business-vault/bv-api/menus', (req, res, next) => {
-            let text = JSON.stringify(toCamelCase(req.body))
-            text = text.replace(/http[s]*:\/\/[^\/]+/g, '')
-            fs.writeFile(
-                me.menuFileLocation,
-                `export default Menus = ${text}`,
-                err => err ? console.log(err) : null
-            )
-            res.status(200).send(JSON.stringify(req.body))
-        })
         me.server.get('*', (req, res, next) => {
             me.request = req
             me.response = res

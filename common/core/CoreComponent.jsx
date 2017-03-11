@@ -1,18 +1,15 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import CoreUser from './CoreUser'
-import CoreUtil from './CoreUtil'
-import {formatDatetime} from 'common/utils/DateTimeUtils'
-import AuthenticationService from 'apps/authentication/services/AuthenticationServices'
-import AuthStore from 'apps/authentication/stores/AuthStore'
+import coreUser from 'common/core/CoreUser'
+import coreUtil from 'common/core/CoreUtil'
 import NavigationService from 'apps/navigation/Service'
+import AuthService from 'common/core/auth/Service'
 
 const location = typeof window != 'undefined' ? window.location : {hash: '', search: '', href: ''};
 
 export default class CoreComponent extends React.Component {
     constructor(props) {
         super(props)
-        this.util = new CoreUtil()
         this._service = null
         this.state = {refresh: false}
         this.init()
@@ -21,10 +18,11 @@ export default class CoreComponent extends React.Component {
     componentDidMount() {this._mounted = true}
     componentWillUnmount() {this._mounted = false}
 
+    get util() {return coreUtil}
     get routeParams() {return this.util.getCookie('route-params')}
 
-    get authStore() {return AuthStore}
-    get authService() {return AuthenticationService}
+    get authStore() {return this.authService.store}
+    get authService() {return AuthService}
     get navigationService() {return this.service && this.service == NavigationService ? this.service : NavigationService}
     get navigationStore() {return this.navigationService.store}
     get modal() {return this.navigationStore.modal}
@@ -41,26 +39,24 @@ export default class CoreComponent extends React.Component {
     get store() {return this.service ? this.service.store : null}
     get actions() {return this.service ? this.service.actions : null}
     get history() {return this.util.history}
-    get gec_lates_data() {return this.props.hasOwnProperty('gec_latest_data') ? this.props.gec_latest_data : {}}
     get isMounted() {return this._mounted}
     get dom() {return jQuery(ReactDOM.findDOMNode(this))}
-    get user() {return new CoreUser()}
+    get user() {return coreUser}
     get isLoggedIn() {return this.user.isLoggedIn}
     get mainClassName() {return ''}
     get className() {return this.mainClassName + ' ' + (this.props.className ? this.props.className : '')}
     get uuid() {
-        if (!this._uuid) this._uuid = 'gec_' + (new Date()).valueOf() + Math.random().toFixed(16).substring(2)
+        if (!this._uuid) this._uuid = 'app_' + (new Date()).valueOf() + Math.random().toFixed(16).substring(2)
         return this._uuid
     }
     get showLogin() {return !this.user.isLoggedIn && (location.hash == '#login' || this.util.getCookie('login-required') == 1)}
-    get showResetPassword() {return location.pathname == '/business-vault/reset-password'}
+    get showResetPassword() {return location.hash == '#reset-password' || this.util.getCookie('reset-password') == 1}
     refresh = (state) => {
         this.util.assign(this.state, state , {
             refresh: !this.state.refresh
         })
-        this.setState(this.state, this.onAfterRefresh)
+        this.setState(this.state)
     }
-    onAfterRefresh = () => {}
     renderChild = (child, i) => {
         try {
             var me = this

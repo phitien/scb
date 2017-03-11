@@ -4,17 +4,14 @@ import NavigationBaseComponent from 'apps/navigation/components/Component'
 export default class FollowUsComponent extends NavigationBaseComponent {
     get mainClassName() {return 'follow-us'}
     get items() {return [{
+        icon: 'facebook',
+        url: 'https://www.facebook.com/standardchartered'
+    },{
         icon: 'twitter',
-        url: 'https://twitter.com/AsiaDotFinance'
+        url: 'https://twitter.com/stanchart'
     },{
         icon: 'linkedin',
-        url: 'https://www.linkedin.com/company/6650221?trk=tyah&trkInfo=clickedVertical%3Acompany%2CclickedEntityId%3A6650221%2Cidx%3A2-2-5%2CtarId%3A1454427188686%2Ctas%3Aasia%20finance'
-    },{
-        icon: 'facebook',
-        url: 'https://www.facebook.com/asiafinanceportal/'
-    },{
-        icon: 'googleplus',
-        url: ''
+        url: 'https://www.linkedin.com/standard-chartered-bank'
     }]}
 
     render() {

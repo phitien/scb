@@ -6,7 +6,7 @@ export default class CopyRightComponent extends NavigationBaseComponent {
 
     render() {
         return <div className={this.className}>
-            © {new Date().getFullYear()} Asia Finance. All Rights Reserved
+            © Standard Chartered {new Date().getFullYear()}
         </div>
     }
 }

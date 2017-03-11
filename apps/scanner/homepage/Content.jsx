@@ -6,7 +6,7 @@ import DataGrid from 'apps/scanner/homepage/DataGrid'
 export default class ScannerHomepageContent extends ScannerContent {
     render() {
         return (
-            <CoreSection className='content' heading='Scanner'>
+            <CoreSection className='content' heading=''>
                 <DataGrid/>
             </CoreSection>
         )

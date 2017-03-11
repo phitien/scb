@@ -7,11 +7,11 @@ class Actions extends CoreActions {
 
 class Store extends CoreStore {
     get griddata() {return this.getProp('griddata', [
-        { id: 1, title: 'Title 1' },
-        { id: 2, title: 'Title 2' },
-        { id: 3, title: 'Title 3' },
-        { id: 4, title: 'Title 4' },
-        { id: 5, title: 'Title 5' },
+        { id: 1, col1: 'Row 1.1' },
+        { id: 2, col1: 'Row 2.1' },
+        { id: 3, col1: 'Row 3.1' },
+        { id: 4, col1: 'Row 4.1' },
+        { id: 5, col1: 'Row 5.1' },
     ])}
     set griddata(v) {this.setProp('griddata', v, true)}
 }

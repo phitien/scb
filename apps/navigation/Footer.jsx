@@ -12,7 +12,7 @@ import CopyRightComponent from 'apps/navigation/components/CopyRight'
 import TermsAndConditionsComponent from 'apps/navigation/components/TermsAndConditions'
 
 export default class FooterComponent extends NavigationBaseComponent {
-    get mainClassName() {return 'footer-container'}
+    get mainClassName() {return 'container footer-container'}
     get logo() {return <LogoComponent/>}
     get universalMenu() {return <UniversalMenuComponent/>}
     get siteMenu() {return <SiteMenuComponent/>}

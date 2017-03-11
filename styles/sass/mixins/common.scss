@@ -1,0 +1,139 @@
+@import 'styles/sass/constants/variables';
+// GET BOOLEAN VALUE
+@function bool($value: false) {
+    @if $value == false or
+        $value == "" or
+        $value == "false" or
+        $value == 'false' or
+        $value == 0 {
+            @return false;
+        }
+    @return true;
+}
+@mixin mobile-display($mobile: false) {
+    @if bool($mobile) == true {
+        .window {
+            display: none !important;
+            &.inline, &.inline-block, &.flex {
+                display: none !important;
+            }
+        }
+        .mobile {
+            display: block !important;
+            &.inline {
+                display: inline !important;
+            }
+            &.inline-block {
+                display: inline-block !important;
+            }
+            &.flex {
+                display: flex !important;
+            }
+        }
+    }
+    @else {
+        .window {
+            display: block !important;
+            &.inline {
+                display: inline !important;
+            }
+            &.inline-block {
+                display: inline-block !important;
+            }
+            &.flex {
+                display: flex !important;
+            }
+        }
+        .mobile {
+            display: none !important;
+            &.inline, &.inline-block, &.flex {
+                display: none !important;
+            }
+        }
+    }
+}
+
+@mixin display-flex-center() {
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    justify-content: space-between;
+}
+
+@mixin display-flex-row-center() {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+@mixin display-table() {
+    display: table;
+    >* {
+        display: table-cell;
+        float: none;
+        vertical-align: top;
+    }
+}
+
+@mixin button-style(
+                    $bg-color, $bg-color-hover, $bg-color-click,
+                    $border-color, $border-color-hover, $border-color-click,
+                    $text-color, $text-color-hover, $text-color-click,
+                    $border-width, $border-width-hover, $border-width-click,
+                    $button-height: 32px
+                    ) {
+    background-color: $bg-color;
+    border: $border-width solid $border-color;
+    border-radius: 0;
+    outline: none;
+    color: $text-color;
+    position: relative;
+    min-width: 80px;
+    text-align: center;
+    cursor: pointer;
+    &:hover {
+        background-color: $bg-color-hover;
+        border: $border-width-hover solid $border-color-hover;
+        border-radius: 0;
+        outline: none;
+        color: $text-color-hover;
+    }
+    &:focus, &:active, &:visited {
+        background-color: $bg-color-click;
+        border: $border-width-click solid $border-color-click;
+        border-radius: 0;
+        outline: none;
+        color: $text-color-click;
+    }
+	.loading-indicator {
+		display: none;
+		background-color: $bg-color-click;
+		position: absolute;
+		top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+	}
+    @include button-style-height(
+        $border-width, $border-width-hover, $border-width-click,
+        $button-height
+    )
+}
+
+@mixin button-style-height(
+    $border-width, $border-width-hover, $border-width-click,
+    $button-height: 32px
+) {
+    line-height: $button-height;
+    height: $button-height;
+    padding: 0;
+    &:hover {
+        line-height: $button-height - 2*($border-width-hover - $border-width);
+    }
+    &:focus, &:active, &:visited {
+        line-height: $button-height - 2*($border-width-click - $border-width);
+    }
+    .loading-indicator {
+        line-height: $button-height;
+	}
+}

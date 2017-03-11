@@ -1,0 +1,22 @@
+{
+    "apps": [
+        {
+    	    "name": "user-profile",
+            "cwd": "apps/user_profile/server/",
+    	    "env": {
+                "PORT": 2810,
+                "NODE_ENV": "production",
+                "NODE_PATH": "./:../:../../:../../../:../../../../:../../../../../",
+                "VIEWS": "../../../public/gen/user_profile",
+                "TEMPLATE": "index.html",
+                "LOG_LEVEL": "debug"
+    	    },
+    	    "exec_mode": "fork_mode",
+    	    "max_memory_restart": "500M",
+            "script": "pm2.js",
+    	    "log_date_format": "YYYY-MM-DD HH:mm Z",
+            "watch": ["public/gen/business_vault"],
+            "ignore_watch": ["node_modules"]
+        }
+    ]
+}

@@ -1,0 +1,52 @@
+input[type=text],input[type=password],input[type=email],input[type=url],input[type=number],textarea {
+    height: 40px;
+	border-radius: 2px;
+	background-color: #ffffff !important;
+	border: solid 1px #e9eaeb;
+    color: #a9adb0;font-size: 14px;
+    padding-left: 16px;
+    padding-right: 16px;
+    outline: none;
+    &:not(:placeholder-shown) {
+        color: #263238;
+    }
+    &:hover,&:focus,&:active {
+        border-color: #a9adb0;
+    }
+}
+input[type=radio], input[type=checkbox],.input-switch {
+    cursor: pointer;margin: 0;height: 18px;width: 18px;display: inline-block;position: relative;overflow: hidden;
+    border: none;outline: none;
+    &:after {
+        content: '';position: absolute;top: 0;left: 0;
+        height: 18px;width: 18px;display: inline-block;
+        background-position: center;background-repeat: no-repeat;
+        background-color: #ffffff;
+    }
+}
+input[type=radio]:after {border: 1px solid #e9eaeb;border-radius: 50%;background-image: url(/public/static/images/icons/u-i-radio-button-normal.png);}
+input[type=radio][checked]:after {background-image: url(/public/static/images/icons/u-i-radio-button-click-active.png);}
+input[type=checkbox]:after,.input-switch:after {background-image: url(/public/static/images/icons/u-i-check-box-hover.png);}
+input[type=checkbox][checked]:after,.input-switch.checked:after {background-image: url(/public/static/images/icons/u-i-check-box-click-active.png);}
+input[disabled] {
+    color: lightgrey !important;
+}
+.field-error {font-size: 12px;font-weight: normal;color: #f44336;display: block;margin: 0;}
+.input-box {
+    position: relative;display: flex;align-items: center;
+    input[type=text],input[type=password],input[type=email],input[type=url],input[type=number],textarea {
+        flex: 1;
+    }
+    label {margin: 0 0 0 8px;cursor: pointer;flex: 1;}
+    label.error-message {display: none;}
+}
+.error.input-box,.error .input-box {
+    input[type=text],input[type=password],input[type=email],input[type=url],input[type=number] {
+        border-color: #f44336;
+    }
+    label.error-message {@extend .field-error;position: absolute;top: 100%;}
+}
+.input-radio,.input-checkbox {
+    align-items: flex-start;
+    input {margin-top: 6px;}
+}

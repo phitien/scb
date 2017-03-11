@@ -1,0 +1,59 @@
+.btn-style-small {
+    height: 32px;font-size: 12px;
+}
+
+.btn-style-default {
+    background-color: #f44336;
+    border-color: #f44336;
+    color: #ffffff;
+    box-shadow: 0 2px 4px 0 rgba(211, 72, 62, 0.6);
+    &:hover {
+        background-color: #ff584c;
+        border-color: #ff584c;
+        color: #ffffff;
+    }
+    &:focus, &:active {
+        background-color: #df3d31;
+        border-color: #df3d31;
+        color: #ffffff;
+    }
+}
+
+.btn-style {
+    @extend .btn-style-small,.btn-style-default;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 2px;
+    outline: none;
+    position: relative;
+    padding: 0;
+    cursor: pointer;
+    padding-left: 12px;
+    padding-right: 12px;
+    font-weight: bold;font-style: normal;font-stretch: normal;letter-spacing: normal;text-align: center;line-height: normal;
+}
+
+.btn-style-regular {
+    height: 40px;font-size: 12px;
+}
+
+.btn-style-big {
+    height: 48px;font-size: 12px;
+}
+
+.btn-style-hilighted {
+    background-color: #ffffff;
+    border-color: #e9eaeb;
+    color: #263238;
+    box-shadow: 0 2px 4px 0 rgba(38, 49, 56, 0.08);
+    &:hover {
+        background-color: #f9f9fa;
+        border-color: #e9eaeb;
+        color: #263238;
+    }
+    &:focus, &:active {
+        background-color: #e9eaeb;
+        border-color: #e9eaeb;
+        color: #263238;
+    }
+}

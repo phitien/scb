@@ -1,0 +1,41 @@
+@import 'apps/user_profile/sass/mixins/common';
+
+@media only screen and (max-width: 1280px) {
+    .user-profile-page {
+
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .user-profile-page {
+
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .user-profile-page.user-profile-homepage-page .content {
+        .actions {
+            padding-right: 0;
+            padding-left: 50%;
+        }
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .user-profile-page.user-profile-homepage-page .content {
+        .names, .accounts {
+            flex-direction: column;
+            .field {margin-left: 0;}
+        }
+        .actions {padding-left: 0;}
+    }
+    .user-profile-page.user-profile-investor-page .content {
+        .field-label {margin-top: 0;}
+        .field-geographies-of-interest {
+            padding-right: 0;
+        }
+        .actions {
+            padding-left: 0
+        }
+    }
+}

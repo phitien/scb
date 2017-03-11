@@ -1,0 +1,75 @@
+@import 'apps/user_profile/sass/mixins/common';
+
+.user-profile-page.user-profile-investor-page .content {
+    .field-label {margin-top: 32px;}
+    .input-checkbox {
+        padding: 16px 16px 16px 48px;margin-bottom: 8px;
+        &:hover,&.checked {
+            background-color: #efefef;
+        }
+    }
+    .field-accredited {
+        display: block;
+        .accredited {
+            display: inline-block;
+            font-size: 15px;color: #37ad74;cursor: pointer;
+            padding-left: 24px;height: 24px;line-height: 24px;
+            background-position: 0 center;background-repeat: no-repeat;
+            background-image: url(/public/static/images/icons/icon-green-check.png);
+        }
+        .not-accredited {
+            display: inline-block;
+            font-size: 15px;color: #f44336;cursor: pointer;
+            padding: 2px 8px;border-radius: 4px;
+            background-position: 0 center;background-repeat: no-repeat;
+            background-image: url(/public/static/images/icons/icon-green-check.png);
+            background: none;
+            border: 1px solid #e9eaeb;
+            &:hover {border-color: #a9adb0;}
+        }
+        .field-label {margin-top: 0;}
+    }
+    .field-years-of-experience {
+        width: 232px;flex: initial;margin-left: 48px;
+    }
+    .field-investment-interests {
+        display: block;
+        .deselect-all {
+            color: #8a9093;font-size: 12px;font-weight: normal;float: right;cursor: pointer;text-transform: uppercase;
+            &:hover {color: #263238;}
+        }
+        .investment-interest {
+            display: inline-block;margin: 0 16px 20px 0;flex: initial;
+            &:last-child {margin-right: 0;}
+        }
+    }
+    .field-geographies-of-interest {
+        padding-right: 50%;
+        .Select-value {
+            border: solid 1px #e9eaeb;background-color: #ffffff;
+            .Select-value-icon {
+                color: #b6b7b8;border-color: #e9eaeb;
+                height: 24px;width: 24px;padding: 0;
+                display: inline-flex;align-items: center;justify-content: center;
+            }
+            .Select-value-label {
+                color: #000000;padding: 0 8px;
+            }
+        }
+    }
+    .field-about {
+        textarea {
+            min-height: 176px;
+        }
+    }
+    .field-accredited-reasons,.field-risk-disclosure-tc-process {
+    }
+    .actions {
+        padding-left: 50%;
+        .btn-view-profile {flex: 3;}
+    }
+
+    &.accredited-details {
+        .field-label {margin-top: 0px;}
+    }
+}

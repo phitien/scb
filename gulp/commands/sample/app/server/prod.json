@@ -1,0 +1,24 @@
+{
+    "apps" : [
+        {
+    	    "name": "new-app",
+    	    "cwd": "apps/new_app/server/",
+    	    "env" : {
+                "PORT": 2810,
+                "NODE_ENV": "production",
+                "NODE_PATH": "./:../:../../:../../../:../../../../:../../../../../",
+                "VIEWS": "../../../public/gen/new_app",
+                "TEMPLATE": "index.html",
+                "LOG_LEVEL": "warn"
+    	    },
+    	    "exec_mode": "fork_mode",
+    	    "max_memory_restart": "500M",
+            "script": "pm2.js",
+            "error_file": "/var/log/af/new-app-out.log",
+    	    "out_file": "/var/log/af/new-app-error.log",
+    	    "log_date_format": "YYYY-MM-DD HH:mm Z",
+            "watch": ["../../../public/gen/business_vault"],
+            "ignore_watch": ["node_modules"]
+        }
+    ]
+}

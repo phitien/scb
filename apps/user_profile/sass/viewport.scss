@@ -1,0 +1,10 @@
+@import 'apps/user_profile/sass/mixins/common';
+
+.user-profile-page.user-profile-homepage-page {
+    padding: 24px 0;
+    .content {
+        .actions {
+            padding-right: 50%;
+        }
+    }
+}

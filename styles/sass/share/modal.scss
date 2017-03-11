@@ -1,0 +1,98 @@
+.bv-modal-wrapper {
+    height: 100%;
+    overflow: auto;
+    margin-right: -150px;
+    padding-right: 150px;
+}
+
+.ReactModalPortal {
+    outline: none;
+    .ReactModal__Overlay {display: none;}
+    .ReactModal__Overlay.ReactModal__Overlay--after-open {
+        outline: none;position: fixed;top: 0;right: 0;bottom: 0;left: 0;display: block;
+        background-color: rgba(0,0,0,0.7) !important;outline: none;border: none;box-shadow: none;
+        display: flex;align-items: center;justify-content: center;
+        .ReactModal__Content,.modal-dialog {
+            width: 480px;margin: 0;position: relative;outline: none;
+            .error-text {
+                font-size: 15px;font-weight: normal;color: #6d6f71;
+                display: block;text-align: center;padding: 0 24px;
+            }
+            .modal-message {
+                background-color: #ffffff;font-size: 12px;font-weight: bold;text-align: center;
+                width: 100%;margin-bottom: 8px;padding: 0;
+                .normal, .error {
+                    padding: 0 24px;text-align: center;
+                }
+                .normal {color: #37ad74;}
+                .error {color: #f44336;}
+            }
+            .modal-content {padding: 24px 0 0;border-radius: 0;box-shadow: none;}
+            .modal-title {color: #263238;font-size: 28px;font-weight: normal;margin: 0;padding: 0 24px 32px;text-align: center;}
+            .modal-heading {color: #263238;font-size: 28px;font-weight: normal;text-align: center;padding: 24px;}
+            .intro {padding: 0 24px;text-align: center;font-size: 15px;color: #8a9093;}
+            .close-button {
+                background-position: center;background-repeat: no-repeat;
+                width: 32px;height: 32px;display: inline-block;cursor: pointer;
+                position: absolute;right: 16px;top: 16px;
+                background-image: url(/public/static/images/icons/icon-close-popup-normal.png);
+                &:hover {
+                    background-image: url(/public/static/images/icons/icon-close-popup-hover.png);
+                }
+                &:focus,&:active {
+                    background-image: url(/public/static/images/icons/icon-close-popup-click.png);
+                }
+            }
+            .icon-like {
+                display: block;margin: 0 auto;background-position: center;background-repeat: no-repeat;
+                background-image: url(/public/static/images/auth/like.png);
+                border: 1px solid #e9eaeb;border-radius: 50%;
+                width: 40px;height: 40px;
+                &.icon-like-big {width: 80px;height: 80px;}
+            }
+            .icon-mail {
+                display: block;margin: 0 auto;background-position: center;background-repeat: no-repeat;
+                background-image: url(/public/static/images/icons/graphic-email.png);
+                border: 1px solid #e9eaeb;border-radius: 50%;
+                width: 40px;height: 40px;
+                &.icon-mail-big {width: 80px;height: 80px;}
+            }
+            .actions {
+                padding: 24px;
+                display: flex;align-items: center;justify-content: center;
+                button {flex: 1;margin-left: 24px;
+                    &:first-child {margin-left: 0;}
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 480px) {
+    .ReactModalPortal .ReactModal__Overlay.ReactModal__Overlay--after-open {
+        background-color: #263238 !important;padding: 0 15px;
+        .ReactModal__Content,.modal-dialog {
+            width: 100%;
+            .modal-message {
+                margin-bottom: 0;
+                .normal, .error {color: #ffffff;}
+                .normal {background-color: #37ad74;}
+                .error {background-color: #f44336;}
+            }
+            .modal-title {font-weight: bold;font-size: 20px;text-align: left;padding: 0 24px 24px;}
+            .intro {text-align: left;
+                br {display: none;}
+            }
+            .auth-form {margin-top: 0;justify-content: flex-start;}
+            &.fullscreen-modal-dialog {
+                position: fixed;top: 0;right: 0;bottom: 0;left: 0;margin: 0 auto;
+                display: flex;flex-direction: column;
+                .modal-content {
+                    flex: 1;width: 100%;margin: 0 auto;
+                    display: flex;flex-direction: column;
+                    .modal-title {font-size: 24px;text-align: center;}
+                    .auth-form {flex: 1}
+                }
+            }
+        }
+    }
+}

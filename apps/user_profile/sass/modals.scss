@@ -1,0 +1,9 @@
+.user-profile-modal-dialog {
+    .input-box {
+        padding-bottom: 24px;
+        label{top: 36px;}
+    }
+    &.confirm-unlink-modal-dialog {
+        button {text-transform: uppercase;}
+    }
+}

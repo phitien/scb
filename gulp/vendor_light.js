@@ -8,7 +8,7 @@ var gutil = require('gulp-util');
 var sourcemaps = require('gulp-sourcemaps');
 
 var libs = require('./common/libs_light')
-var DIST_DIR = './public/gen';
+var DIST_DIR = './public/apps';
 
 gulp.task('vendor:light', function() {
     var options = {

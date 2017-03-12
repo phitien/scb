@@ -1,5 +1,5 @@
 import React from 'react'
-import CoreModal from 'common/core/CoreModal'
+import CoreModal from './CoreModal'
 
 export default class CoreErrorModal extends CoreModal {
     get modalClassName() {return 'error-modal'}

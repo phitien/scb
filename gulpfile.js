@@ -25,8 +25,6 @@ require('./gulp/vendor_light')
  */
 // gulp user_profile | user_profile:prod | up | up:prod
 require('./apps/user_profile/gulp/gulp')
-// gulp navigation | navigation:prod
-require('./apps/navigation/gulp/gulp')
 // gulp scanner | scanner:prod
 require('./apps/scanner/gulp/gulp')
 /**NEW_APP**/
@@ -36,7 +34,6 @@ var gulp = require('gulp')
 var runSequence = require('run-sequence')
 gulp.task('default', function() {
     runSequence(
-'navigation:prod',
 'scanner:prod',
 'user_profile:prod',
 /**NEW_GULP**/

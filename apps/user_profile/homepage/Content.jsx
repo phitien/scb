@@ -1,13 +1,13 @@
 import React from 'react'
-import CoreSection from 'common/core/CoreSection'
-import CoreInput from 'common/core/CoreInput'
-import CoreButton from 'common/core/CoreButton'
-import UserProfileContent from 'apps/user_profile/components/Content'
-import ConfirmUnlinkModal from 'apps/user_profile/modals/ConfirmUnlinkModal'
-import ProfilePictureComponent from 'apps/user_profile/homepage/ProfilePicture'
-import LinkedAccountsComponent from 'apps/user_profile/homepage/LinkedAccounts'
-import PhoneNumberComponent from 'apps/user_profile/homepage/PhoneNumber'
-import ChangePasswordModal from 'apps/navigation/modals/ChangePasswordModal'
+import CoreSection from '../../../common/core/CoreSection'
+import CoreInput from '../../../common/core/CoreInput'
+import CoreButton from '../../../common/core/CoreButton'
+import ChangePasswordModal from '../../../common/core/navigation/modals/ChangePasswordModal'
+import UserProfileContent from '../components/Content'
+import ConfirmUnlinkModal from '../modals/ConfirmUnlinkModal'
+import ProfilePictureComponent from './ProfilePicture'
+import LinkedAccountsComponent from './LinkedAccounts'
+import PhoneNumberComponent from './PhoneNumber'
 
 export default class UserProfileHomepageContent extends UserProfileContent {
     get changed() {return this.firstNameInput.changed

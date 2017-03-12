@@ -1,15 +1,14 @@
 import Cookies from 'js-cookie';
-// import when from 'when';
 import RequestBuilder from './RequestBuilder';
-import { removeNulls } from './ObjectUtils.jsx';
+import { removeNulls } from './ObjectUtils';
 
 class RestRequest {
     displayError(errorMsg) {
         console.error(errorMsg);
     }
 
-    handleErrorStatus(request, msg) {
-        var statusCode = request.status;
+    handleErrorStatus = (res, msg) => {
+        var statusCode = res.status;
         switch (statusCode) {
             case 400: break;
             case 401: this.displayError('User Unauthorized'); break;
@@ -34,23 +33,26 @@ class RestRequest {
             case 431: break;
             case 500: this.displayError('System error'); break;
             case 502: this.displayError('It\'s likely Django application is  not running'); break;
-            default: console.error(request, msg);
+            default: console.error(res, msg);
         }
-        throw request.response;
+        throw res.response;
     }
 
     _buildRequest(requestBuilder, data) {
         return requestBuilder.
             addHeader({
                 'X-CSRFToken': Cookies.get('csrftoken'),
-                'Authorization': 'JWT ' + Cookies.get('af-jwt') ,
+                'Authorization': 'JWT ' + Cookies.get('app-jwt') ,
                 'Content-Type': 'application/json'
             }).
             addType('json').
             add('CrossOrigin', true).
             addData(data).
-            build().then( response => removeNulls(response.data) );
-            //catch(this.handleErrorStatus.bind(this));
+            build().then( res => {
+                removeNulls(res.data)
+                return res
+            } )
+            .catch(this.handleErrorStatus);
     }
 
     saveRequest(url, data) {
@@ -66,10 +68,8 @@ class RestRequest {
     }
 
     deleteRequest(url, data) {
-	return this._buildRequest(RequestBuilder.delete(url), data);
+        return this._buildRequest(RequestBuilder.delete(url), data);
     }
-
-
 }
 
 export default new RestRequest();

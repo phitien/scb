@@ -1,9 +1,9 @@
-import AppDispatcher from 'common/dispatchers/AppDispatcher'
-import { EventEmitter } from 'events'
-import {save, update, fetch, remove, convertAndPrepare} from 'common/utils/RESTUtil'
-import coreUtil from 'common/core/CoreUtil'
-import events from 'common/core/Events'
 import when from 'when'
+import {EventEmitter} from 'events'
+import AppDispatcher from '../dispatchers/AppDispatcher'
+import {save, update, fetch, remove, convertAndPrepare} from '../utils/RESTUtil'
+import coreUtil from './CoreUtil'
+import events from './Events'
 
 export const EVENTS = events
 

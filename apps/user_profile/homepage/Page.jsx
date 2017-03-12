@@ -1,6 +1,6 @@
 import React from 'react'
-import UserProfilePage from 'apps/user_profile/components/Page'
-import UserProfileHomepageContent from 'apps/user_profile/homepage/Content'
+import UserProfilePage from '../components/Page'
+import UserProfileHomepageContent from './Content'
 
 export default class UserProfileHomepagePage extends UserProfilePage {
     get mainClassName() {return 'user-profile-page user-profile-homepage-page'}

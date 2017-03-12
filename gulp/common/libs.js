@@ -1,7 +1,7 @@
 module.exports = [
-    // 'react',
-    // 'react-dom',
-    // 'react-bootstrap',
-    // 'lodash',
-    // 'jquery',
+    'react',
+    'react-dom',
+    'lodash',
+    'jquery',
+    'jquery-ui',
 ]

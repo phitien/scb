@@ -1,6 +1,6 @@
-import Server from 'common/server/server'
-import NewAppRoutes from 'apps/new_app/Routes'
-import NewAppApplication from 'apps/new_app/App'
+import Server from '../../../common/server/server'
+import NewAppRoutes from '../Routes'
+import NewAppApplication from '../App'
 
 var server = new Server()
 server.port = process.env.PORT ? process.env.PORT : 2810

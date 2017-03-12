@@ -9,11 +9,10 @@ import { match, RouterContext } from 'react-router'
 import { Provider } from 'react-redux'
 import { Promise } from 'bluebird'
 import ObjectAssign from 'object-assign'
-import logger from 'common/server/logger'
-import { fetchUniversalMenu, loadOptions } from 'common/server/services'
 import bodyParser from 'body-parser'
 import fs from 'fs'
 import { toCamelCase } from '../utils/ObjectUtils'
+import logger from './logger'
 
 const LOG_LEVEL = process.env.LOG_LEVEL ? process.env.LOG_LEVEL : 'warn'
 
@@ -35,7 +34,6 @@ export default class Server {
     set store(v) {this._store = v}
     get title() {return this._title}
     set title(v) {this._title = v}
-    get menuFileLocation() {return process.env.NODE_ENV ? '../../../public/menus.js' : 'public/menus.js'}
     get meta_description() {return this._meta_description}
     set meta_description(v) {this._meta_description = v}
     get meta_keywords() {return this._meta_keywords}
@@ -74,7 +72,7 @@ export default class Server {
         error: this.error ? this.error.toString() : '',
         data: this.data,
     }}
-    fetchMenu = () => Promise.all([fetchUniversalMenu(), loadOptions()])
+    fetchMenu = () => Promise.all([])
     get handler() {return this._handler ? this._handler : function(props) {this.render(props)}}
     set handler(v) {this._handler = v}
     html = (props) => {

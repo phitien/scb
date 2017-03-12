@@ -1,6 +1,6 @@
 import React from 'react'
-import CoreSection from 'common/core/CoreSection'
-import NewAppContent from 'apps/new_app/components/Content'
+import CoreSection from '../../../common/core/CoreSection'
+import NewAppContent from '../components/Content'
 
 export default class NewAppHomepageContent extends NewAppContent {
     render() {

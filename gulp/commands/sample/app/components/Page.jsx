@@ -1,9 +1,9 @@
 import React from 'react'
-import CorePageLeftSidebar from 'common/core/CorePageLeftSidebar'
-import CorePageRightSidebar from 'common/core/CorePageRightSidebar'
-import CorePageNoSidebar from 'common/core/CorePageNoSidebar'
-import NewAppComponent from 'apps/new_app/components/Component'
-import NewAppSideBar from 'apps/new_app/components/SideBar'
+import CorePageLeftSidebar from '../../../common/core/CorePageLeftSidebar'
+import CorePageRightSidebar from '../../../common/core/CorePageRightSidebar'
+import CorePageNoSidebar from '../../../common/core/CorePageNoSidebar'
+import NewAppComponent from './Component'
+import NewAppSideBar from './SideBar'
 
 export default class NewAppPage extends NewAppComponent {
     get mainClassName() {return 'new-app-page'}

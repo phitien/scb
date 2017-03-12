@@ -1,8 +1,10 @@
+import './sass/styles.scss'
+
 import React from 'react'
 import {createStore, applyMiddleware, combineReducers} from 'redux'
 import thunk from 'redux-thunk'
-import ScannerApplication from 'apps/scanner/App'
-import ScannerRoutes from 'apps/scanner/Routes'
+import ScannerApplication from './App'
+import ScannerRoutes from './Routes'
 
 const app = new ScannerApplication
 /**

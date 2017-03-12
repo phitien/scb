@@ -1,12 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import {browserHistory} from 'react-router'
 import _ from 'lodash'
-import coreCookie from 'common/core/CoreCookie'
 import moment from 'moment'
 import ObjectAssign from 'object-assign'
-import { browserHistory } from 'react-router'
+import coreCookie from './CoreCookie'
 
-const location = typeof window != 'undefined' ? window.location : {hash: '', search: '', href: ''};
+const location = typeof window != 'undefined' ? window.location : {hash: '', search: '', href: ''}
 
 class CoreUtil {
     getPairs = (str) => {

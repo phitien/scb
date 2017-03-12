@@ -8,9 +8,10 @@ var fs = require(`fs`)
 
 const SAMPLE_DIR = `./gulp/commands/sample`
 const APPS_DIR = `./apps`
+const CORE_DIR = `./common/core`
 const TEMPLATES_DIR = `./template`
 const PUBLIC_DIR = `./public`
-const GEN_DIR = `./public/gen`
+const GEN_DIR = `./public/apps`
 const auto_generated_text = `/**AUTO_GENERATED**/`
 const newapp = `/**NEW_APP**/`
 const newgulp = `/**NEW_GULP**/`

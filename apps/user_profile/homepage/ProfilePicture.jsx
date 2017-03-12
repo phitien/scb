@@ -1,5 +1,5 @@
 import React from 'react'
-import UserProfileComponent from 'apps/user_profile/components/Component'
+import UserProfileComponent from '../components/Component'
 
 export default class ProfilePictureComponent extends UserProfileComponent {
     render() {

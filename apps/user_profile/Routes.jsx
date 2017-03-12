@@ -1,10 +1,10 @@
-import {Router, browserHistory} from 'react-router'
-import {onEnterAuthenticated, onEnterUnauthenticated} from 'common/core/CoreApplication'
-import UserProfileViewport from 'apps/user_profile/components/Viewport'
-import UserProfileHomepagePage from 'apps/user_profile/homepage/Page'
+import {Router} from 'react-router'
+import {onEnterAuthenticated, onEnterUnauthenticated} from '../../common/core/CoreApplication'
+import UserProfileViewport from './components/Viewport'
+import UserProfileHomepagePage from './homepage/Page'
 /**NEW_PAGE**/
 
-const rootPaths = ['/app/user-profile']
+const rootPaths = ['/public/apps/user_profile']
 const subRoutes = [
 /**NEW_PAGE_ROUTE**/
 ]

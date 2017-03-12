@@ -1,5 +1,5 @@
 import React from 'react'
-import UserProfileComponent from 'apps/user_profile/components/Component'
+import UserProfileComponent from './Component'
 
 const location = typeof window != 'undefined' ? window.location : {hash: '', search: '', href: ''};
 

@@ -1,5 +1,3 @@
-@import 'styles/sass/constants/variables';
-// GET BOOLEAN VALUE
 @function bool($value: false) {
     @if $value == false or
         $value == "" or

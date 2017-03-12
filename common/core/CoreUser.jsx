@@ -1,4 +1,4 @@
-import AuthService from 'common/core/auth/Service'
+import AuthService from './auth/Service'
 /**
  * @class CoreUser
  */

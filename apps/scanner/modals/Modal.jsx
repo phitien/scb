@@ -1,6 +1,6 @@
 import React from 'react'
-import CoreModal from 'common/core/CoreModal'
-import ScannerService from 'apps/scanner/services/Service'
+import CoreModal from '../../../common/core/CoreModal'
+import ScannerService from '../services/Service'
 
 export default class ScannerModal extends CoreModal {
     init() {this.service = ScannerService}

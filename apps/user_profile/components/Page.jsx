@@ -1,9 +1,9 @@
 import React from 'react'
-import CorePageLeftSidebar from 'common/core/CorePageLeftSidebar'
-import CorePageRightSidebar from 'common/core/CorePageRightSidebar'
-import CorePageNoSidebar from 'common/core/CorePageNoSidebar'
-import UserProfileComponent from 'apps/user_profile/components/Component'
-import UserProfileSideBar from 'apps/user_profile/components/SideBar'
+import CorePageLeftSidebar from '../../../common/core/CorePageLeftSidebar'
+import CorePageRightSidebar from '../../../common/core/CorePageRightSidebar'
+import CorePageNoSidebar from '../../../common/core/CorePageNoSidebar'
+import UserProfileComponent from './Component'
+import UserProfileSideBar from './SideBar'
 
 export default class UserProfilePage extends UserProfileComponent {
     componentDidMount() {

@@ -1,4 +1,4 @@
-import {EVENTS, CoreStore, CoreActions, CoreService} from 'common/core/CoreService'
+import {EVENTS, CoreStore, CoreActions, CoreService} from '../../../common/core/CoreService'
 
 EVENTS.sure('scanner', 'fetch_griddata')
 

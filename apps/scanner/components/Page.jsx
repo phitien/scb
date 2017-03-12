@@ -1,9 +1,9 @@
 import React from 'react'
-import CorePageLeftSidebar from 'common/core/CorePageLeftSidebar'
-import CorePageRightSidebar from 'common/core/CorePageRightSidebar'
-import CorePageNoSidebar from 'common/core/CorePageNoSidebar'
-import ScannerComponent from 'apps/scanner/components/Component'
-import ScannerSideBar from 'apps/scanner/components/SideBar'
+import CorePageLeftSidebar from '../../../common/core/CorePageLeftSidebar'
+import CorePageRightSidebar from '../../../common/core/CorePageRightSidebar'
+import CorePageNoSidebar from '../../../common/core/CorePageNoSidebar'
+import ScannerComponent from './Component'
+import ScannerSideBar from './SideBar'
 
 export default class ScannerPage extends ScannerComponent {
     get mainClassName() {return 'scanner-page'}

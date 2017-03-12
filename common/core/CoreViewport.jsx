@@ -1,8 +1,8 @@
 import React from 'react'
 import CoreComponent from './CoreComponent'
-import HeaderComponent from 'apps/navigation/Header'
-import FooterComponent from 'apps/navigation/Footer'
-import CoreErrorModal from 'common/core/CoreErrorModal'
+import HeaderComponent from './navigation/Header'
+import FooterComponent from './navigation/Footer'
+import CoreErrorModal from './CoreErrorModal'
 
 export default class CoreViewport extends CoreComponent {
     get header() {return <HeaderComponent/>}

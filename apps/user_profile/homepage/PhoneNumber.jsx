@@ -1,7 +1,7 @@
 import React from 'react'
-import UserProfileComponent from 'apps/user_profile/components/Component'
-import CoreInput from 'common/core/CoreInput'
 import Select from 'react-select'
+import CoreInput from '../../../common/core/CoreInput'
+import UserProfileComponent from '../components/Component'
 
 export default class PhoneNumberComponent extends UserProfileComponent {
     get changed() {return this.phoneNumberInput.changed

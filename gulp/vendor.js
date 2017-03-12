@@ -7,7 +7,7 @@ var gutil = require('gulp-util');
 var sourcemaps = require('gulp-sourcemaps');
 
 var libs = require('./common/libs')
-var DIST_DIR = './public/gen';
+var DIST_DIR = './public/apps';
 
 gulp.task('vendor', function() {
     var options = {

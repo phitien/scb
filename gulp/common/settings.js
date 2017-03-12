@@ -13,13 +13,6 @@ module.exports = function(name, is_component, serverside, production, scss_files
             `${root}/**/**/**/**/*.jsx`,
         ]
     }
-    function css_files(root) {
-        return [
-            `${root}/mixins/*.scss`,
-            `${root}/*.scss`,
-            `${root}/responsive/*.scss`,
-        ]
-    }
     root_dirs = root_dirs ? root_dirs : []
 
     jsx_files = jsx_files ? jsx_files : []
@@ -30,31 +23,18 @@ module.exports = function(name, is_component, serverside, production, scss_files
         jsx_files_set = jsx_files_set.concat(js_files(jsx_root_dirs[i]))
     }
 
-    scss_files = scss_files ? scss_files : []
-    scss_files_set = []
-    scss_root_dirs = [`${STYLES_DIR}/${name}`, `${CLIENT_DIR}/${name}/sass`]
-    for(var i=0;i<root_dirs.length;i++) {
-        scss_root_dirs.push(`${root_dirs[i]}/sass`)
-    }
-    for(var i=0;i<scss_root_dirs.length;i++) {
-        scss_files_set = scss_files_set.concat(css_files(`${scss_root_dirs[i]}`))
-    }
-    scss_files_set = is_component ?
-        [`${STYLES_DIR}/constants/*.scss`, `${STYLES_DIR}/mixins/*.scss`, `${STYLES_DIR}/share/*.scss`]
-            .concat(css_files(`${CLIENT_DIR}/${name}/sass`))
-            .concat(css_files(`${STYLES_DIR}/${name}`))
-            .concat(scss_files) :
-        [`${STYLES_DIR}/constants/*.scss`, `${STYLES_DIR}/mixins/*.scss`, `${STYLES_DIR}/share/*.scss`]
-            .concat(css_files(`${CLIENT_DIR}/*/sass`))
-            .concat(css_files(`${STYLES_DIR}/${name}`))
-            .concat(scss_files)
     return {
         TEMPLATE_DIR: TEMPLATE_DIR,
         PUBLIC_DIR: PUBLIC_DIR,
         STYLES_DIR: STYLES_DIR,
         CLIENT_DIR: CLIENT_DIR,
         JSX_FILES: jsx_files_set.concat(jsx_files),
-        SCSS_FILES: scss_files_set,
+        SCSS_FILES: [
+            `**/**/*.scss`,
+            `**/**/**/*.scss`,
+            `**/**/**/**/*.scss`,
+            `**/**/**/**/**/*.scss`,
+        ],
         rev: require('gulp-rev'),
         release: require('./release.js'),
         is_component: is_component,
@@ -62,7 +42,7 @@ module.exports = function(name, is_component, serverside, production, scss_files
         production: production,
         module_dir: `${CLIENT_DIR}/${name}`,
         application: `${name}`,
-        DIST_DIR: `${PUBLIC_DIR}/gen/${name}`,
+        DIST_DIR: `${PUBLIC_DIR}/apps/${name}`,
         name: `${name}`,
         data: data ? data : {
             name: 'Standard Chartered Bank',

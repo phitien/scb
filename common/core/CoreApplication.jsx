@@ -1,10 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import {match, Router, browserHistory} from 'react-router'
+import {match, Router} from 'react-router'
 import {Provider} from 'react-redux'
 import {createStore, applyMiddleware, combineReducers} from 'redux'
 import thunk from 'redux-thunk'
-import coreUtil from 'common/core/CoreUtil'
+import coreUtil from './CoreUtil'
 
 const location = typeof window != 'undefined' ? window.location : {hash: '', search: '', href: ''};
 
@@ -19,7 +19,7 @@ export const onEnterUnauthenticated = (nextState, replace) => {
 
 export default class CoreApplication {
     get util() {return coreUtil}
-    get history() {return browserHistory}
+    get history() {return this.util.history}
     static defaultStore = createStore(
         applyMiddleware(
             thunk

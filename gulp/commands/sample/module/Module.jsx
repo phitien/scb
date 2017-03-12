@@ -1,5 +1,5 @@
 import React from 'react'
-import NewModuleBaseComponent from 'apps/new_module/Component'
+import NewModuleBaseComponent from './Component'
 
 export default class NewModuleComponent extends NewModuleBaseComponent {
     get mainClassName() {return 'new-module-container'}

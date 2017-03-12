@@ -7,7 +7,7 @@
                 "PORT": 2810,
                 "NODE_ENV": "production",
                 "NODE_PATH": "./:../:../../:../../../:../../../../:../../../../../",
-                "VIEWS": "../../../public/gen/scanner",
+                "VIEWS": "../../../public/apps/scanner",
                 "TEMPLATE": "index.html",
                 "LOG_LEVEL": "debug"
     	    },
@@ -15,7 +15,7 @@
     	    "max_memory_restart": "500M",
             "script": "pm2.js",
     	    "log_date_format": "YYYY-MM-DD HH:mm Z",
-            "watch": ["public/gen/business_vault"],
+            "watch": ["public/apps/business_vault"],
             "ignore_watch": ["node_modules"]
         }
     ]

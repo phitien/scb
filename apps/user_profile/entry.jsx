@@ -1,8 +1,10 @@
+import './sass/styles.scss'
+
 import React from 'react'
 import {createStore, applyMiddleware, combineReducers} from 'redux'
 import thunk from 'redux-thunk'
-import UserProfileApplication from 'apps/user_profile/App'
-import UserProfileRoutes from 'apps/user_profile/Routes'
+import UserProfileApplication from './App'
+import UserProfileRoutes from './Routes'
 
 const app = new UserProfileApplication
 /**

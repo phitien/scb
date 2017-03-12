@@ -7,7 +7,7 @@ import RequestBuilder from './RequestBuilder'
 import { toCamelCase, toSnakeCase } from './ObjectUtils'
 
 const buildHeader = () => {
-    const jwtToken = Cookies.get('af-jwt')
+    const jwtToken = Cookies.get('app-jwt')
 
     if (jwtToken) {
         return {

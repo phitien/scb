@@ -1,6 +1,6 @@
 import jwtDecode from 'jwt-decode'
-import AppDispatcher from 'common/dispatchers/AppDispatcher'
-import {EVENTS, CoreStore, CoreActions, CoreService} from 'common/core/CoreService'
+import AppDispatcher from '../../dispatchers/AppDispatcher'
+import {EVENTS, CoreStore, CoreActions, CoreService} from '../CoreService'
 
 EVENTS.sure('auth', 'search_searchdata')
 

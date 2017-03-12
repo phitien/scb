@@ -12,7 +12,7 @@ var bundleCollapser = require('bundle-collapser/plugin');
 var assign = require('lodash.assign');
 
 var libs = require('./libs');
-var DIST_DIR = './public/gen';
+var DIST_DIR = './public/apps';
 
 function createBundle(entry, paths, bundleName, dest, production, is_component) {
     var bundleConfig = {

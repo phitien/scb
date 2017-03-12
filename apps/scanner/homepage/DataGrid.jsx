@@ -1,7 +1,7 @@
 import React from 'react'
-import CoreSection from 'common/core/CoreSection'
-import ScannerComponent from 'apps/scanner/components/Component'
-import CoreDataGrid from 'common/core/CoreDataGrid'
+import CoreSection from '../../../common/core/CoreSection'
+import CoreDataGrid from '../../../common/core/CoreDataGrid'
+import ScannerComponent from '../components/Component'
 
 export default class DataGrid extends ScannerComponent {
     render() {

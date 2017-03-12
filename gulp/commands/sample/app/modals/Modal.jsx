@@ -1,6 +1,6 @@
 import React from 'react'
-import CoreModal from 'common/core/CoreModal'
-import NewAppService from 'apps/new_app/services/Service'
+import CoreModal from '../../../common/core/CoreModal'
+import NewAppService from '../services/Service'
 
 export default class NewAppModal extends CoreModal {
     init() {this.service = NewAppService}

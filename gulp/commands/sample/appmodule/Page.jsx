@@ -1,6 +1,6 @@
 import React from 'react'
-import NewAppPage from 'apps/new_app/components/Page'
-import NewAppNewModuleContent from 'apps/new_app/new_module/Content'
+import NewAppPage from '../components/Page'
+import NewAppNewModuleContent from './Content'
 
 export default class NewAppNewModulePage extends NewAppPage {
     get mainClassName() {return 'new-app-page new-app-new-module-page'}

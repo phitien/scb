@@ -1,6 +1,6 @@
 import React from 'react'
-import UserProfileComponent from 'apps/user_profile/components/Component'
-import ConfirmUnlinkModal from 'apps/user_profile/modals/ConfirmUnlinkModal'
+import UserProfileComponent from '../components/Component'
+import ConfirmUnlinkModal from '../modals/ConfirmUnlinkModal'
 
 export default class LinkedAccountsComponent extends UserProfileComponent {
     get changed() {

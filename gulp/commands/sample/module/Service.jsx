@@ -1,6 +1,5 @@
-import AppDispatcher from 'common/dispatchers/AppDispatcher'
-import {EVENTS, CoreStore, CoreActions, CoreService} from 'common/core/CoreService'
-import NewModuleSettings from 'apps/new_module/Settings'
+import {EVENTS, CoreStore, CoreActions, CoreService} from '../../../common/core/CoreService'
+import NewModuleSettings from './Settings'
 
 class Actions extends CoreActions {
 }

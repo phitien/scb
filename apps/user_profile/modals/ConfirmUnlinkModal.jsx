@@ -1,7 +1,7 @@
 import React from 'react'
-import CoreModal from 'common/core/CoreModal'
-import CoreButton from 'common/core/CoreButton'
-import UserProfileModal from 'apps/user_profile/modals/Modal'
+import CoreModal from '../../../common/core/CoreModal'
+import CoreButton from '../../../common/core/CoreButton'
+import UserProfileModal from './Modal'
 
 export default class ConfirmUnlinkModal extends UserProfileModal {
     get subModalClassName() {return `confirm-unlink-modal-dialog`}

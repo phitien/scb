@@ -4,7 +4,7 @@ import ScannerApplication from 'apps/scanner/App'
 
 var server = new Server()
 server.port = process.env.PORT ? process.env.PORT : 2810
-server.views = process.env.VIEWS ? process.env.VIEWS : 'public/gen/scanner'
+server.views = process.env.VIEWS ? process.env.VIEWS : 'public/apps/scanner'
 server.template = process.env.TEMPLATE ? process.env.TEMPLATE : 'index.html'
 server.routes = ScannerRoutes
 server.store = ScannerApplication.defaultStore

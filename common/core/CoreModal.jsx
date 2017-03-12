@@ -1,6 +1,6 @@
 import React from 'react'
-import CoreComponent from './CoreComponent'
 import Modal from 'react-modal'
+import CoreComponent from './CoreComponent'
 
 export default class CoreModal extends CoreComponent {
     constructor(props) {

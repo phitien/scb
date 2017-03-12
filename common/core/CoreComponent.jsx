@@ -1,9 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import coreUser from 'common/core/CoreUser'
-import coreUtil from 'common/core/CoreUtil'
-import NavigationService from 'apps/navigation/Service'
-import AuthService from 'common/core/auth/Service'
+import coreUser from './CoreUser'
+import coreUtil from './CoreUtil'
+import NavigationService from './navigation/Service'
+import AuthService from './auth/Service'
 
 const location = typeof window != 'undefined' ? window.location : {hash: '', search: '', href: ''};
 
@@ -40,17 +40,18 @@ export default class CoreComponent extends React.Component {
     get actions() {return this.service ? this.service.actions : null}
     get history() {return this.util.history}
     get isMounted() {return this._mounted}
-    get dom() {return jQuery(ReactDOM.findDOMNode(this))}
     get user() {return coreUser}
     get isLoggedIn() {return this.user.isLoggedIn}
     get mainClassName() {return ''}
-    get className() {return this.mainClassName + ' ' + (this.props.className ? this.props.className : '')}
+    get className() {return this.mainClassName + ' ' + (this && this.props && this.props.className ? this.props.className : '')}
     get uuid() {
         if (!this._uuid) this._uuid = 'app_' + (new Date()).valueOf() + Math.random().toFixed(16).substring(2)
         return this._uuid
     }
+    set uuid(v) {this._uuid = v}
     get showLogin() {return !this.user.isLoggedIn && (location.hash == '#login' || this.util.getCookie('login-required') == 1)}
     get showResetPassword() {return location.hash == '#reset-password' || this.util.getCookie('reset-password') == 1}
+
     refresh = (state) => {
         this.util.assign(this.state, state , {
             refresh: !this.state.refresh
